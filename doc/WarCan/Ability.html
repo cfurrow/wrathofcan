@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: WarCan::Ability</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/warcan/ability_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/warcan/ability.rb">lib/warcan/ability.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-can">#can</a></li>
+          
+          <li><a href="#method-i-can-3F">#can?</a></li>
+          
+          <li><a href="#method-i-rules">#rules</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../WarCan.html">WarCan</a></li>
+        
+          <li><a href="../WarCan/Ability.html">WarCan::Ability</a></li>
+        
+          <li><a href="../Ability.html">Ability</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../Class2.html">Class2</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">WarCan::Ability</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="can-method" class="method-detail ">
+          <a name="method-i-can"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">can</span><span
+              class="method-args">(action, *args,&block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Define an action Examples:</p>
+
+<pre>can :view, SomeClass, :user_id=&gt;1, :active=&gt;true
+can :manage, SuperSecretClass, :is_admin=&gt;true</pre>
+
+<p>You can even pass blocks to can():</p>
+
+<pre>can :edit, SomeClass do |klass|
+  klass.active==false
+end</pre>
+            
+
+            
+            <div class="method-source-code" id="can-source">
+<pre>
+<span class="ruby-comment"># File lib/warcan/ability.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can</span>(<span class="ruby-identifier">action</span>, *<span class="ruby-identifier">args</span>,&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># add action to the list of rules</span>
+  <span class="ruby-identifier">rules</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:action=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">action</span>, <span class="ruby-value">:args</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">args</span>, <span class="ruby-value">:block=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">block</span>}
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- can-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- can-method -->
+
+      
+        <div id="can-3F-method" class="method-detail ">
+          <a name="method-i-can-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">can?</span><span
+              class="method-args">(action, principle)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Determine if the current user can perform an ‘action’ on the pre-defined
+rules.</p>
+            
+
+            
+            <div class="method-source-code" id="can-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/warcan/ability.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can?</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">principle</span>)
+  <span class="ruby-identifier">matching_rules</span> = <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">item</span>[<span class="ruby-value">:action</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">action</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">matching_rules</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rule</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rule</span>[<span class="ruby-value">:args</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">principle</span>.<span class="ruby-identifier">class</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">rule</span>[<span class="ruby-value">:args</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span>
+      <span class="ruby-identifier">rule</span>[<span class="ruby-value">:args</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">principle</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>)
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&amp;&amp;=</span> (<span class="ruby-identifier">principle</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">val</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">rule</span>[<span class="ruby-value">:args</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Proc</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">rule</span>[<span class="ruby-value">:block</span>]
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">rule</span>[<span class="ruby-value">:block</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">principle</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- can-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- can-3F-method -->
+
+      
+        <div id="rules-method" class="method-detail ">
+          <a name="method-i-rules"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">rules</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>The rules collection</p>
+            
+
+            
+            <div class="method-source-code" id="rules-source">
+<pre>
+<span class="ruby-comment"># File lib/warcan/ability.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rules</span>
+  <span class="ruby-ivar">@rules</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- rules-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rules-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
