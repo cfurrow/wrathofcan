@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe 'current_user' do
   before(:each) do
    WarCan::reset 
