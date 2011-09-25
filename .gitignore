@@ -1,0 +1,6 @@
+.bundle/config
+bin/autospec
+bin/htmldiff
+bin/ldiff
+bin/rake
+bin/rspec
