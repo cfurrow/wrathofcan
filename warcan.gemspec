@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/cfurrow/warcan"
   s.summary     = %q{CanCan like clone for Warden/Sinatra}
 
-  s.rubyforge_project = "warcan"
+  #s.rubyforge_project = "warcan"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
