@@ -7,9 +7,8 @@ Gem::Specification.new do |s|
   s.version     = WarCan::VERSION
   s.authors     = ["Carl Furrow"]
   s.email       = ["me@carlfurrow.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://github.com/cfurrow/warcan"
+  s.summary     = %q{CanCan like clone for Warden/Sinatra}
 
   s.rubyforge_project = "warcan"
 
@@ -19,6 +18,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "pry"
   # s.add_runtime_dependency "rest-client"
 end
