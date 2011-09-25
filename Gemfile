@@ -1,8 +1,4 @@
 source :rubygems
 
-gem "rspec"
-gem "rake"
+gemspec
 
-group :test do
-  gem "pry"
-end
